@@ -30,11 +30,16 @@
                             "src/favicon.ico",
                             "src/assets"
                         ],
+
                         "styles": [
                             "src/styles.scss",
-                            "node_modules/bootstrap/dist/css/bootstrap.min.css"
+                            "node_modules/bootstrap/dist/css/bootstrap.min.css",
+                            "src/assets/fonts/font-file.css"
                         ],
-                        "scripts": ["node_modules/bootstrap/dist/js/bootstrap.min.js"]
+                        "stylePreprocessorOptions": {
+                            "includePaths": ["src/assets/styles"]
+                        },
+                        "scripts": ["node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"]
                     },
                     "configurations": {
                         "production": {
@@ -96,14 +101,17 @@
                             "src/favicon.ico",
                             "src/assets"
                         ],
+
                         "styles": [
                             "src/styles.scss"
                         ],
+                        "stylePreprocessorOptions": {
+                            "includePaths": ["src/assets/styles"]
+                        },
                         "scripts": []
                     }
                 }
             }
         }
-    },
-    "defaultProject": "web-client"
+    }
 }

@@ -1,5 +1,6 @@
 import { AfterViewInit, Component, OnInit } from '@angular/core';
 import { Modal } from 'bootstrap';
+import { AppConfiguracionService } from 'src/app/core/services/app-configuracion.service';
 import { LoadingService } from 'src/app/core/services/loading.service';
 
 @Component({
@@ -14,7 +15,7 @@ export class LoadingMessageComponent implements OnInit, AfterViewInit {
   loadingModal: Modal | undefined;
   el_loadingModal: any;
   
-  constructor(readonly loadingService: LoadingService) { }
+  constructor(readonly loadingService: LoadingService, private conf: AppConfiguracionService) { }
   
   ngAfterViewInit(): void {
     this.el_loadingModal = document.getElementById('loadingModal');
@@ -40,11 +41,11 @@ export class LoadingMessageComponent implements OnInit, AfterViewInit {
       else if(load === 'close') {             
         setTimeout(() => {
           this.loadingModal?.hide();  
-        }, 3000);
+        }, this.conf.getConfig().ESPERA);
       } else {
         setTimeout(() => {
           this.loadingModal?.hide();  
-        }, 2000);
+        }, this.conf.getConfig().ESPERA);
       }
       
     });

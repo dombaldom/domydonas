@@ -1,6 +1,7 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
+import { Persona } from '../models';
 import { AppConfiguracionService } from './app-configuracion.service';
 
 /**********
@@ -26,9 +27,17 @@ export class AuthService {
   }
 
   // Envia al backend datos del usuario a registrarse en el sistema, formato json en un post. Regresa Option
-  registrar(username: string, password: string, email: string): Observable<any> {
-    return this.http.post(this.config.getConfig().AUTHENTICATE_API_SIGNUP, {
-      username, password, email }, http_options);
+  registrar(persona: Persona): Observable<any> {
+    console.log('new person');
+    const body = JSON.stringify(persona);
+    
+    return this.http.post(this.config.getConfig().AUTHENTICATE_API_SIGNUP, 
+      body, http_options);
+  }
+
+
+  logout(): Observable<any> {
+    return this.http.post(this.config.getConfig().AUTHENTICATE_API_SIGNIN, { }, http_options);
   }
 
 

@@ -1,56 +1,37 @@
-<form [formGroup]="userForm" novalidate (ngSubmit)="onSubmit()">
 
-    <p>
-        <label for="nombre">Nombre</label>
-        <input type="text" id="nombre" name="nombre" formControlName="nombre">
-    </p>
+<div class="d-flex flex-column min-vh-100 justify-content-center main-bg">
+  <div class="mt-5" >
+    <div class="rounded d-flex justify-content-center">
+        <div class="col-md-4 col-sm-12 shadow-lg p-5 bg-light">
+            <div class="text-center">
+                <h3 class="text-green-1">Sign In</h3>
+            </div>
+            <form [formGroup]="loginForm" (ngSubmit)="onSubmit()" novalidate>
+                <div class="p-4">
+                    <div class="input-group mb-3">
+                        <span class="input-group-text bg color-primary-2"><fa-icon icon="user"></fa-icon></span>
+                        <input type="text" class="form-control" placeholder="Username" id="username" name="username" formControlName="username">
+                    </div>
+                    <div class="input-group mb-4">
+                        <span class="input-group-text bg color-primary-2">
+                            <fa-icon icon="key"></fa-icon></span>
+                        <input type="password" class="form-control" placeholder="password" id="password" name="password" formControlName="password">
+                    </div>
 
-    <p>
-        <label for="apPaterno">Apellido Paterno</label>
-        <input type="text" id="apPaterno" name="apPaterno" formControlName="apPaterno">
-    </p>
+                    <div class="d-grid gap-2 col-6 mx-auto">
+                        <button class="btn color-primary-2" type="submit" name="login" id="login">Login</button>                        
+                      </div>
 
-    <p>
-        <label for="apMaterno">Apellido Materno</label>
-        <input type="text" id="apMaterno" name="apMaterno" formControlName="apMaterno">
-    </p>
-
-    <div formGroupName="autenticacion">
-        <p>
-            <label for="username">username</label>
-            <input type="text" id="username" name="username" formControlName="username">
-        </p>
-
-        <p>
-            <label for="password">password</label>
-            <input type="password" id="password" name="password" formControlName="password">
-        </p>
+                    <p class="text-center mt-5">
+                        <span >
+                             <a href="/home/signup" class="text-brown-1">Aun no tienes cuenta?</a>
+                        </span>
+                    </p>
+                    <p class="text-center text-brown-1">Forgot your password?</p>
+                </div>
+            </form>
+        </div>
     </div>
+</div>
+</div>
 
-    <p>
-        <label for="foto">Foto</label>
-        <input type="file" id="imagen" name="imagen" formControlName="imagen">
-    </p>
-
-    <p>
-        <label for="activo">El usuario esta activo?</label>
-        <input type="checkbox" id="activo" name="activo" formControlName="activo">
-    </p>
-
-    <p>
-        <label for="email">Email</label>
-        <input type="email" id="email" name="email" formControlName="email">
-    </p>
-
-    <p>
-        <label for="permisos">Permisos</label>
-        <select id="roles" name="roles" formControlName="roles">
-            <option [ngValue]="r.id" *ngFor="let r of roleList">
-                {{r.nombre}}
-            </option>
-
-        </select>
-    </p>
-
-
-</form>

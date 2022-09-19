@@ -1,7 +1,32 @@
-section {
-    background-color: #eee;
+@use '/src/assets/styles/colors';
+
+.bg {
+    background-image: url(../../../../assets/img/background-singup.jpg);
+    background-position: center center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-color: colors.$color-secondary-1-0;
 }
 
-border-gral {
-    border-radius: 25px;
+button {
+    background-color: colors.$button-color;
+}
+
+.box-shadow-custom {
+    box-shadow: 19px 19px 34px 1px rgba(0,0,0,0.4);
+    -webkit-box-shadow: 19px 19px 34px 1px rgba(0,0,0,0.4);
+    -moz-box-shadow: 19px 19px 34px 1px rgba(0,0,0,0.4);
+}
+
+.display-title  {
+    display: flex;
+}
+
+.text-title {
+    color: colors.$color-secondary-1-4;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-weight: bold;
+    font-style: oblique;
+    font-size: xx-large;
 }

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { PersonasService } from 'src/app/core';
 
 @Component({
   selector: 'app-menu',
@@ -7,9 +8,20 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MenuComponent implements OnInit {
 
-  constructor() { }
+  constructor(private personaService: PersonasService) { }
+  userList: any; 
+  title = 'Menú Principal';
 
   ngOnInit(): void {
+
+    
+
+    this.personaService.getAllUsers().subscribe( {
+      next: (data) => {this.userList = data},
+      //error: No se implementa, todos los errores se manegan en forma global: ErrorGlobalHandlerService
+      complete:()  => console.info('proceso terminado!') 
+    })      
+
   }
 
 }

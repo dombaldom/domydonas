@@ -1,8 +1,10 @@
-import { HttpEvent, HttpHandler, HttpInterceptor, HttpRequest } from '@angular/common/http';
+import { HttpEvent, HttpHandler, HttpInterceptor, HttpRequest, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { catchError, finalize, Observable, throwError } from 'rxjs';
 import { TokenStorageService } from './token-storage.service';
 import { LoadingService } from './loading.service';
+import {Router} from "@angular/router"
+
 
 /**********
  * Intercepta culquier request y response, 
@@ -12,7 +14,9 @@ import { LoadingService } from './loading.service';
 })
 export class AppHttpInterceptorService implements HttpInterceptor{
 
-  constructor(private tokenService: TokenStorageService, private loadingService: LoadingService) { }
+  constructor(private tokenService: TokenStorageService, private loadingService: LoadingService, private router: Router) { }
+
+
 
   // Intercepta cualquier http
   intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {    
@@ -21,26 +25,43 @@ export class AppHttpInterceptorService implements HttpInterceptor{
         var messError: any = '';
     
     console.log('interceptado');    
-    let authenticationRequest = req;
+   // let authenticationRequest = req;
     // Bandera para saber si hubo error y en este caso realizar el cierre del cuadro de dialogo inmediatamente.
     let hayError: boolean = false;
 
+  
+
+
+      req = req.clone({        
+        withCredentials: true
+      });
+  
+
+  
+  
+/*
+
+  
     // Obtiene el token almacenado en la sesion, este token se debio haber cargado en el login.
     const token = this.tokenService.getToken();
 
     // Si el token exsite el usuario esta firmado, por tanto puede enviar request:
     // clona el request y agrega al header Autorization, bearer con el token
     if (token != null) {
-      authenticationRequest = authenticationRequest.clone(
+      req = req.clone(
         {
-          headers: req.headers.set("Authorization", 'Bearer ' + token)
+          headers: req.headers.set("Authorization", 'Bearer ' + token),
+          withCredentials: true
         }
       ) ;     
     }
 
-    
+*/
+
+    let errMessage = '';
     // Envia el request al backend
     return next.handle(req).pipe(
+      
       
       // Recibe response si hay error,  el modal de 'Espere.....' (loading) se cierra y lanza nuevo modal con error:
       catchError((e) => {
@@ -48,11 +69,14 @@ export class AppHttpInterceptorService implements HttpInterceptor{
         // Envia error, lo cacha el servicio de error-message y abre didalgo para mostrarlo
 
         if(e.error !== null && e.error.mensaje !== undefined ) {
-          return throwError(e.error.mensaje + ' ' + e.error.origen + ' ' + e.error.url);
-        } else {
-          let errMessage = e.status === 401 ? e.message + ' No esta autorizado para ver esta pagina ' : e.message;
+          errMessage = e.error.mensaje + ' ' + e.error.origen + ' ' + e.error.url;
           return throwError(errMessage);
+        } else if(e.status === 401 ){
+          this.router.navigate(['/forbidden']);          
+        } else {
+          errMessage = e.message + '\n Intente mas tarde';          
         }
+        return throwError(errMessage);
 
         
       }),
@@ -65,6 +89,21 @@ export class AppHttpInterceptorService implements HttpInterceptor{
         }
         
       })
+
+      // catchError(e => {
+      //   console.log('salida' + e);
+      //   return throwError('errMessage'); 
+        
+      // }),
+      // finalize(() => console.log('Salida')
+      // )
+
+
     ) as Observable<HttpEvent<any>>;
   }
 }
+
+
+export const httpInterceptorProviders = [
+  { provide: HTTP_INTERCEPTORS, useClass: AppHttpInterceptorService, multi: true },
+];

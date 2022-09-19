@@ -18,7 +18,7 @@ import { LoadingMessageComponent } from './loading-message/loading-message.compo
     FooterComponent,
     HeaderComponent,
     MessageErrorComponent,
-    LoadingMessageComponent
+    LoadingMessageComponent,
   ],
   imports: [
     CommonModule,

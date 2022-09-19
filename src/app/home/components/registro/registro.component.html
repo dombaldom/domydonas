@@ -1,33 +1,237 @@
-<section class="vh-100">
+<div class="container main-bg  w-100 mt-5 rounded-5  box-shadow-custom mb-5">
 
-    <div class="container h-100">
-        <div class="row d-flex justify-content-center align-items-center h-100">
-            <div class="col-lg-12 col-xl-11 ">
-                <div class="card-text-black border-gral">
-                    <div class="card-body p-md-5">
-                        <div class="row justify-content-center">
-                            <div class="col-md-10 col-lg-6 col-xl-5 order-2 order-lg-1">
-                                <p class="text-center h1 fw-bold mb-5 mx-1 mx-md-4 mt-4">
-                                    Sign up
-                                </p>
+  <div class="row align-items-stretch ">
 
-                                <form class="mx-1 mx-md-4">
-                                    <div class="d-flex flex-row align-items-lg-center mb-4">
-                                        <i class="fas fa-user fa-lg me-3 fa-fw "></i>
-
-                                    </div>
-
-
-                                </form>
-
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-        </div>
-
+    <!-- Imagen izquierda 'bg', se maneja como background, la img esta fija. -->
+    <div class="col bg d-none d-md-block col-md-5 col-lg-6 col-xl-7">
     </div>
 
-</section>
+    <div class="col p-5 rounded-end ">
+
+      <!-- Logo y titulo lado derecho -->
+      <img src="../../../../assets/img/logo-final-transparente.png" alt="DomyDonas"
+        class=" m-0 p-0 w-25 align-content-around d-block mx-auto">
+      <h2 class="fw-bold text-center pb-3 pt-1 text-title">Registro Usuario</h2>
+
+      <!-- Formulario, se utiliza reactive forms angular. -->
+      <form [formGroup]="userForm" (ngSubmit)="onSubmit()" novalidate>
+        <div class="row">
+          <div class="col">
+
+
+            <!-- Caja de texto que recibe los valores del usuario -->
+            <div class="mb-3">
+              <input type="text" class="form-control" name="nombre" formControlName="nombre" aria-describedby="helpId"
+                placeholder="Nombre" (focus)="onFocus()"
+                [class.is-invalid]="userForm.get('nombre')?.touched && userForm.get('nombre')?.invalid"
+                [class.is-valid]="userForm.get('nombre')?.touched && !userForm.get('nombre')?.invalid">
+
+              <!-- Mensaje de error, se muestra abajo de la caja de texto -->
+              <div *ngIf="!nombre?.valid && (nombre?.dirty || nombre?.touched)">
+                <small class="text-danger" *ngIf="nombre?.hasError('minlength')">
+                  El numero de caracteres debe ser mayor a 3
+                </small>
+                <small class="text-danger" *ngIf="nombre?.hasError('required')">
+                  El campo es requerido
+                </small>
+              </div>
+
+            </div>
+
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col">
+
+
+            <!-- Caja de texto que recibe los valores del usuario -->
+            <div class="mb-3">
+              <input type="text" class="form-control" name="apellido paterno" formControlName="apPaterno"
+                aria-describedby="helpId" placeholder="Apellido Paterno" (focus)="onFocus()"
+                [class.is-invalid]="userForm.get('apPaterno')?.touched && userForm.get('apPaterno')?.invalid"
+                [class.is-valid]="userForm.get('apPaterno')?.touched && !userForm.get('apPaterno')?.invalid">
+
+              <!-- Mensaje de error, se muestra arriba de la caja de texto -->
+              <div *ngIf="!apPaterno?.valid && (apPaterno?.dirty || apPaterno?.touched)">
+                <small class="text-danger" *ngIf="apPaterno?.hasError('minlength')">
+                  El numero de caracteres debe ser mayor a 3
+                </small>
+
+                <small class="text-danger" *ngIf="apPaterno?.hasError('required')">
+                  El campo es requerido
+                </small>
+              </div>
+
+            </div>
+
+
+          </div>
+          <div class="col">
+
+
+            <!-- Caja de texto que recibe los valores del usuario -->
+            <div class="mb-3">
+              <input type="text" class="form-control" name="apellido materno" formControlName="apMaterno"
+                aria-describedby="helpId" placeholder="Apellido Materno" (focus)="onFocus()"
+                [class.is-invalid]="userForm.get('apMaterno')?.touched && userForm.get('apMaterno')?.invalid"
+                [class.is-valid]="userForm.get('apMaterno')?.touched && !userForm.get('apMaterno')?.invalid">
+
+                            <!-- Mensaje de error, se muestra arriba de la caja de texto -->
+            <div *ngIf="!apMaterno?.valid && (apMaterno?.dirty || apMaterno?.touched)">
+              <small class="text-danger" *ngIf="apMaterno?.hasError('minlength')">
+                El numero de caracteres debe ser mayor a 3
+              </small>
+              <small class="text-danger" *ngIf="apMaterno?.hasError('required')">
+                El campo es requerido
+              </small>
+            </div>
+
+              </div>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col">
+
+            <!-- Caja de texto que recibe los valores del usuario -->
+            <div class="mb-3">
+              <input type="email" class="form-control" name="email" formControlName="email" aria-describedby="helpId"
+                placeholder="Email" (focus)="onFocus()"
+                [class.is-invalid]="userForm.get('email')?.touched && userForm.get('email')?.invalid"
+                [class.is-valid]="userForm.get('email')?.touched && !userForm.get('email')?.invalid">
+
+            <!-- Mensaje de error, se muestra arriba de la caja de texto -->
+            <div *ngIf="!email?.valid && (email?.dirty || email?.touched)">
+              <small class="text-danger" *ngIf="email?.hasError('email')">
+                Inserte un correo valido
+              </small>
+              <small class="text-danger" *ngIf="email?.hasError('required')">
+                El campo es requerido
+              </small>
+            </div>
+
+              </div>
+          </div>
+        </div>
+
+        <div class="col">
+        
+
+        <!-- Caja de texto que recibe los valores del usuario -->
+        <div class="mb-3">
+          <input type="text" class="form-control" name="username" formControlName="username" aria-describedby="helpId"
+            placeholder="Username" (focus)="onFocus()"
+            [class.is-invalid]="userForm.get('username')?.touched && userForm.get('username')?.invalid"
+            [class.is-valid]="userForm.get('username')?.touched && !userForm.get('username')?.invalid">
+
+          <!-- Mensaje de error, se muestra arriba de la caja de texto -->
+          <div *ngIf="!username?.valid && (username?.dirty || username?.touched)">
+            <small class="text-danger" *ngIf="username?.hasError('minlength')">
+              El numero de caracteres debe ser mayor a 5
+            </small>
+            <small class="text-danger" *ngIf="username?.hasError('required')">
+              El campo es requerido
+            </small>
+          </div>
+
+          </div>
+      </div>
+
+        <div formGroupName="autenticacion">
+          <div class="row">
+
+            <div class="col">
+
+              <!-- Caja de texto que recibe los valores del usuario -->
+              <div class="mb-3">
+                <input type="password" class="form-control" name="password" formControlName="password"
+                  aria-describedby="helpId" placeholder="Password" (focus)="onFocus()"
+                  [class.is-invalid]="userForm.get('autenticacion')?.get('password')?.touched && userForm.get('autenticacion')?.get('password')?.invalid"
+                  [class.is-valid]="userForm.get('autenticacion')?.get('password')?.touched 
+                && userForm.get('autenticacion')?.get('password')?.valid
+                && userForm.get('autenticacion')?.valid">
+              
+          <!-- Mensaje de error, se muestra arriba de la caja de texto -->
+          <div *ngIf="!password?.valid && (password?.dirty || password?.touched)">
+            <small class="text-danger" *ngIf="password?.hasError('minlength')">
+              El numero de caracteres debe ser mayor a 5
+            </small>
+            <small class="text-danger" *ngIf="password?.hasError('required')">
+              El campo es requerido
+            </small>
+          </div>
+
+              </div>
+            </div>
+
+            <div class="col">
+
+              <!-- Caja de texto que recibe los valores del usuario -->
+              <div class="mb-3">
+                <input type="password" class="form-control" name="confirmaPassword" formControlName="confirmaPassword"
+                  aria-describedby="helpId" placeholder="Confirma Password" (focus)="onFocus()"
+                  [class.is-invalid]="userForm.get('autenticacion')?.get('confirmaPassword')?.touched && userForm.get('autenticacion')?.get('confirmaPassword')?.invalid"
+                  [class.is-valid]="userForm.get('autenticacion')?.get('confirmaPassword')?.touched 
+                && !userForm.get('autenticacion')?.get('confirmaPassword')?.invalid
+                && !userForm.get('autenticacion')?.invalid">
+                
+              <!-- Mensaje de error, se muestra arriba de la caja de texto -->
+              <div *ngIf="!confirmaPassword?.valid && (confirmaPassword?.dirty || confirmaPassword?.touched)">
+                <small class="text-danger" *ngIf="confirmaPassword?.hasError('minlength')">
+                  El numero de caracteres debe ser mayor a 5
+                </small>
+                <small class="text-danger" *ngIf="confirmaPassword?.hasError('required')">
+                  El campo es requerido
+                </small>
+         </div>
+
+         <div>
+          
+              
+          <small class="text-danger" *ngIf="userForm.get('autenticacion')?.hasError('nomatched')
+          && !confirmaPassword?.hasError('minlength')
+          && !password?.hasError('minlength')">
+            Los passwords no son iguales
+          </small>
+
+         </div>
+
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col">
+            <div class="mb-3">
+              <label for="permisos" class="form-label text-brown-2">Persmisos:</label>
+              <select class="form-control " name="roles" id="roles" formControlName="roles"  (focus)="onFocus()"
+                required>
+                <option [value]="r.id" *ngFor="let r of roleList" [disabled]="r.id == 0">
+                  {{r.nombre}}
+                </option>
+              </select>
+            </div>
+
+          </div>
+        </div>
+
+        <div class="d-grid gap-2">
+          <button type="submit" name="registrar" id="registrar " class="btn btn-primary-1"
+            [disabled]="!userForm.valid">Registrar</button>
+        </div>
+
+        <div *ngIf="!(mensajeExito === '')" class="mt-2">
+          <div class="alert alert-success">
+            <strong>Exito!</strong> {{mensajeExito}}
+          </div>
+        </div>
+
+        <div class="my-3">
+          <div class="span text-brown-1" >Ya tienes cuenta? <a href="home/login" class="text-brown-2-oblique" >Login</a> </div>
+        </div>
+        <br>
+      </form>
+    </div>
+  </div>
+</div>

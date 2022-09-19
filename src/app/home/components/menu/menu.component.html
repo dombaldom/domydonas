@@ -1,15 +1,150 @@
-<app-header></app-header>
-<ul>
-    <li>
-        <a routerLink="/home/">Aqui</a>
-    </li>
-    <li>
-        <a routerLink="/home/login">User</a>
-    </li>
-</ul>
+<!--
+  Encabezado generico para todos los modulos, solo presenta el nombre del modulo, icono de salida, quienes somos e icono de menu principal.
+  El proceso padre le pasa al encabezado el titulo de la barra en la variable 'title'
+-->
+<app-header [title]="title" id="mainhead"></app-header>
 
-<app-message-error></app-message-error>
+<div class="container after-header" >
 
-<router-outlet></router-outlet>
 
-<app-footer></app-footer>
+
+
+<div class="row row-cols-1 row-cols-md-3 g-4">
+    <div class="col">
+      <div class="card h-100 align-items-center">
+        <img  src="../../../../assets/img/tienda.png" class="card-img-top" alt="tienda">
+        <div class="card-body">
+          <h5 class="card-title">M&oacute;dulo Tienda</h5>
+          <p class="card-text">Caja registradora de la tienda.</p>
+        </div>
+        <div class="card-footer">
+          <a href="#">
+            <button type="button" class="btn btn-lg color-primary-3 ">Ingresar</button>
+        </a>
+        </div>
+      </div>
+    </div>
+    <div class="col">
+      <div class="card h-100 align-items-center">
+        <img   src="../../../../assets/img/compras.png" class="card-img-top " alt="compras">
+        <div class="card-body">
+          <h5 class="card-title">M&oacute;dulo Compras</h5>
+          <p class="card-text">Registro de las compras realizadas para la tienda: insumos y producto de reventa.</p>
+        </div>
+        <div class="card-footer">
+          <a href="compras/menu">
+            <button type="button" class="btn btn-lg color-primary-3 ">Ingresar</button>
+        </a>
+        </div>
+      </div>
+    </div>
+    <div class="col">
+      <div class="card h-100 align-items-center">
+        <img src="../../../../assets/img/graficos.png" class="card-img-top" alt="Reportes">
+        <div class="card-body">
+          <h5 class="card-title">M&oacute;dulo Reportes</h5>
+          <p class="card-text">Reportes de todos los m&oacute;dulos del sistema.</p>
+        </div>
+        <div class="card-footer">
+          <a href="#">
+            <button type="button" class="btn btn-lg color-primary-3 ">Ingresar</button>
+        </a>
+        </div>
+      </div>
+    </div>
+  </div>
+<br>
+
+  <div class="row row-cols-1 row-cols-md-3 g-4">
+    <div class="col">
+      <div class="card h-100 align-items-center">
+        <img  src="../../../../assets/img/administracion.png" class="card-img-top" alt="tienda">
+        <div class="card-body">
+          <h5 class="card-title">M&oacute;dulo Administraci&oacute;n</h5>
+          <p class="card-text">Altas, bajas y cambios usuarios, bloqueo parcial y total de m&oacute;dulos, mantenimiento del sistema.</p>
+        </div>
+        <div class="card-footer">
+          <a href="#">
+            <button type="button" class="btn btn-lg color-primary-3 ">Ingresar</button>
+        </a>
+        </div>
+      </div>
+    </div>
+    <div class="col">
+      <div class="card h-100 align-items-center">
+        <img   src="../../../../assets/img/facturacion.png" class="card-img-top " alt="compras">
+        <div class="card-body">
+          <h5 class="card-title">M&oacute;dulo Registro</h5>
+          <p class="card-text">Alta de proveedores, productos para venta, productos compras.</p>
+        </div>
+        <div class="card-footer">
+          <a href="#">
+            <button type="button" class="btn btn-lg color-primary-3 ">Ingresar</button>
+        </a>
+        </div>
+      </div>
+    </div>
+    <div class="col">
+      <div class="card h-100 align-items-center">
+        <img src="../../../../assets/img/logout.png" class="card-img-top" alt="Reportes">
+        <div class="card-body">
+          <h5 class="card-title">Logout</h5>
+          <p class="card-text">Salida del sistema, datos no guardados se eliminar&aacute;n.</p>
+        </div>
+        <div class="card-footer">
+          <a href="#">
+            <button type="button" class="btn btn-lg color-primary-3 ">Ingresar</button>
+        </a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <br>
+
+  <div class="row row-cols-1 row-cols-md-3 g-4">
+    <div class="col">
+      <div class="card h-100 align-items-center">
+        <img  src="../../../../assets/img/administracion.png" class="card-img-top" alt="tienda">
+        <div class="card-body">
+          <h5 class="card-title">Card title</h5>
+          <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+        </div>
+        <div class="card-footer">
+          <a href="#">
+            <button type="button" class="btn btn-lg color-primary-3 ">Ingresar</button>
+        </a>
+        </div>
+      </div>
+    </div>
+    <div class="col">
+      <div class="card h-100 align-items-center">
+        <img   src="../../../../assets/img/facturacion.png" class="card-img-top " alt="compras">
+        <div class="card-body">
+          <h5 class="card-title">Card title</h5>
+          <p class="card-text">This card has supporting text below as a natural lead-in to additional content.</p>
+        </div>
+        <div class="card-footer">
+          <a href="#">
+            <button type="button" class="btn btn-lg color-primary-3 ">Ingresar</button>
+        </a>
+        </div>
+      </div>
+    </div>
+    <div class="col">
+      <div class="card h-100 align-items-center">
+        <img src="../../../../assets/img/logout.png" class="card-img-top" alt="Reportes">
+        <div class="card-body">
+          <h5 class="card-title">Card title</h5>
+          <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This card has even longer content than the first to show that equal height action.</p>
+        </div>
+        <div class="card-footer">
+          <a href="#">
+            <button type="button" class="btn btn-lg color-primary-3 ">Ingresar</button>
+        </a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>

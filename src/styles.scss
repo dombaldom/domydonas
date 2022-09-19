@@ -1,3 +1,48 @@
-/* You can add global styles to this file, and also import other style files */
+@use '/src/assets/styles/colors';
 
-@import '~bootstrap/dist/css/bootstrap.css';
+.main-bg {
+    background-color: colors.$color-primary-2;
+}
+
+
+.text-green-1 {
+    color: colors.$color-complement-0;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-weight: bold;
+    font-style: initial;    
+}
+
+.text-brown-1 {
+    color: colors.$color-secondary-2-0;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-weight: bold;
+    font-style: normal;    
+}
+
+
+.text-brown-2 {
+    color: colors.$color-secondary-1-4;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-weight: lighter;
+    font-style: normal;    
+}
+
+.text-brown-2-oblique {
+    color: colors.$color-secondary-1-4;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-weight: lighter;
+    font-style: oblique;    
+}
+
+img {
+    display: block;
+    max-width: 50%;
+    height: auto;
+    align-items: center;
+    margin: 5px;
+  }
+
+.after-header {
+    margin-top: 150px !important;
+    margin-bottom: 20px !important;
+}

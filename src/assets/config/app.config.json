@@ -1,7 +1,10 @@
 {
     "appHelloWorld": "Hola domi",
-    "AUTHENTICATE_API_SIGNIN": "http://localhost:8080/dbm/auth/signin",
-    "AUTHENTICATE_API_SIGNUP": "http://localhost:8080/dbm/auth/signup",
-    "GET_ALL_USER_URL": "http://localhost:8080/user/lista",
-    "GET_ALL_ROLE_URL": "http://localhost:8080/user/all/roles/lista"
+    "AUTHENTICATE_API_SIGNIN": "http://localhost:8080/app/auth/login",
+    "AUTHENTICATE_API_SIGNUP": "http://localhost:8080/app/auth/signup",
+    "AUTHENTICATE_API_SIGNOUT": "http://localhost:8080/app/auth/signout",
+    "GET_ALL_USER_URL": "http://localhost:8080/app/user/lista/todos",
+    "GET_ALL_ROLE_URL": "http://localhost:8080/app/user/all/roles/lista",
+    "ESPERA": 1000,
+    "SESSION_KEY": "abi*kdjf-jfhex153"
 }

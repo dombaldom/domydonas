@@ -14,7 +14,7 @@ export class Persona {
 
     constructor(
         id: number, nombre: string, apPat: string, apMat: string, 
-        nomUser: string, password: string, img: string, 
+        nomUser : string, password: string, img: string, 
         activo: boolean, email: string, roles: Array<Rol>
     ) {
         this.id = id;
@@ -29,6 +29,8 @@ export class Persona {
         this.roles = roles
         
     }
+
+  
 
 
 }

@@ -5,14 +5,13 @@ import { MenuComponent } from './components/menu/menu.component';
 import { RegistroComponent } from './components/registro/registro.component';
 
 const routes: Routes = [
-  {
-    path: 'home', component: MenuComponent,
-    children: [
-      { path: 'menu', component: MenuComponent},
-      { path: 'login', component: LogingComponent},
-      { path: 'signup', component: RegistroComponent},
-    ]
-  },
+
+      { path: 'home/menu', component: MenuComponent},
+      { path: 'home/login', component: LogingComponent},
+      { path: 'home/signup', component: RegistroComponent},
+      { path: 'home', redirectTo: 'home/login', pathMatch: 'full'}
+
+
 ];
 
 @NgModule({

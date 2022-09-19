@@ -1,0 +1,76 @@
+@import "/node_modules/bootstrap/scss/functions";
+@import "/node_modules/bootstrap/scss/variables";
+@import "/node_modules/bootstrap/scss/mixins";
+
+
+// Colores principales de la aplicacion: Paleta:
+// SASS style sheet */
+// As hex codes */
+
+$color-primary-0: #E79A92;	// Main Primary color */
+$color-primary-1: #FFDBD7;
+$color-primary-2: #FFC4BE;
+$color-primary-3: #CE7268;
+$color-primary-4: #B24A3F;
+
+$color-secondary-1-0: #E7BB92;	// Main Secondary color (1) */
+$color-secondary-1-1: #FFEBD7;
+$color-secondary-1-2: #FFDEBE;
+$color-secondary-1-3: #CE9A68;
+$color-secondary-1-4: #B2773F;
+
+$color-secondary-2-0: #5B868E;	// Main Secondary color (2) */
+$color-secondary-2-1: #9DB4B9;
+$color-secondary-2-2: #76989E;
+$color-secondary-2-3: #41757F;
+$color-secondary-2-4: #28636E;
+
+$color-complement-0: #6EAF7C;	// Main Complement color */
+$color-complement-1: #B2D2B9;
+$color-complement-2: #90C19B;
+$color-complement-3: #4E9C60;
+$color-complement-4: #308743;
+
+
+
+
+/***
+    Definicion de colores para objetos
+***/
+
+$button-color: $color-secondary-1-4;
+
+.color-primary-1 {
+    @include button-variant($button-color, darken($button-color, 7.5%), darken($button-color, 10%), 
+    lighten($button-color,5%), lighten($button-color, 10%), darken($button-color,30%));
+    color: #ffff
+}
+
+.color-outline-primary-1 {
+    @include button-outline-variant($button-color, #222222, lighten($button-color,5%), $button-color);
+}
+
+$button-color2: $color-complement-0;
+
+.color-primary-2 {
+    @include button-variant($button-color2, darken($button-color2, 7.5%), darken($button-color2, 10%), 
+    lighten($button-color2,5%), lighten($button-color2, 10%), darken($button-color2,30%));
+    color: #ffff
+}
+
+.color-outline-primary-2 {
+    @include button-outline-variant($button-color2, #222222, lighten($button-color2,5%), $button-color2);
+}
+
+
+$button-color3: $color-primary-2;
+
+.color-primary-3 {
+    @include button-variant($button-color3, darken($button-color3, 7.5%), darken($button-color3, 10%), 
+    lighten($button-color3,5%), lighten($button-color3, 10%), darken($button-color3,30%));
+    color: #ffff
+}
+
+.color-outline-primary-2 {
+    @include button-outline-variant($button-color2, #222222, lighten($button-color2,5%), $button-color2);
+}
